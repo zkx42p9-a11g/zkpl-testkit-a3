@@ -124,19 +124,22 @@ RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --releas
 ## Repository Structure
 
 ```
-src/
-├── lib.rs                   # Core library interface
-├── main.rs                  # Benchmark executable
-├── kzg.rs                   # KZG commitment implementation
-├── asvc.rs                  # Aggregatable vector commitments
-├── zk_exp_lib.rs           # zkExp protocol implementation
-├── utils.rs                 # Polynomial arithmetic utilities
-├── metrics.rs               # Performance measurement framework
-├── benchmark_runner.rs      # Comprehensive benchmarking
-├── single_exp_analysis.rs   # Individual exponentiation analysis
-├── backing_test.rs          # Validation test suite
-├── schnorr_baseline.rs      # Schnorr baseline (feature-gated)
-└── bls_baseline.rs          # BLS baseline (feature-gated)
+zkexp/
+├── src/
+│   ├── main.rs              # Main benchmark executable
+│   ├── lib.rs               # Library interface and exports
+│   ├── kzg.rs               # KZG polynomial commitment implementation
+│   ├── asvc.rs              # Aggregatable vector commitments
+│   ├── zk_exp_lib.rs        # Core zkExp protocol implementation
+│   ├── utils.rs             # Polynomial arithmetic utilities
+│   ├── metrics.rs           # Performance measurement framework
+│   ├── benchmark_runner.rs  # Comprehensive benchmarking tools
+│   ├── single_exp_analysis.rs # Individual exponentiation analysis
+│   ├── backing_test.rs      # Validation test suite
+│   ├── schnorr_baseline.rs  # Schnorr signature baseline (feature-gated)
+│   └── bls_baseline.rs      # BLS signature baseline (feature-gated)
+├── Cargo.toml              # Project configuration and dependencies
+└── README.md               # This file
 ```
 
 ## Applications
@@ -160,10 +163,17 @@ zkExp enables practical deployment where linear verification costs are prohibiti
 }
 ```
 
-## License
+## Reproducibility
 
-Dual-licensed under MIT OR Apache-2.0.
+This implementation is provided for **peer review and reproducibility** purposes in support of our IACR Communications in Cryptology submission. The code enables reviewers to:
+
+- Validate theoretical claims through empirical benchmarks
+- Reproduce performance measurements from the manuscript
+- Verify correctness of the zkExp protocol implementation
+- Compare against baseline cryptographic schemes
+
+**Research Use Only**: This code is intended solely for academic evaluation and research purposes during the peer review process.
 
 ---
 
-**Note**: This implementation is provided for research and educational purposes. The protocol achieves the first asymptotically efficient bounds for zero-knowledge exponentiation proofs, enabling constant-time verification and constant-size proofs regardless of batch size.
+**Note**: This implementation demonstrates the first asymptotically efficient bounds for zero-knowledge exponentiation proofs, enabling constant-time verification and constant-size proofs regardless of batch size.
