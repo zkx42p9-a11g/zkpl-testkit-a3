@@ -47,8 +47,6 @@ pub mod schnorr_baseline;
 #[cfg(feature = "bls-baseline")]
 pub mod bls_baseline;
 
-#[cfg(feature = "groth16-baseline")]
-pub mod groth16_baseline;
 
 // Re-export main types and functions for public API
 pub use zk_exp_lib::{
