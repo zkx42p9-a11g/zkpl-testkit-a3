@@ -28,17 +28,25 @@ zkExp is a novel zero-knowledge proof system for verifying discrete exponentiati
 | Memory Usage                | 1.11 MB           | 1.07 MB              |
 | Ethereum Gas (1000 ops)     | -                 | 267k gas             |
 
-## Installation
+## Quick Start
 
+### Requirements
+- Rust ≥ 1.75  
+- 128 GB RAM recommended for large-scale benchmarks  
+- Linux (x86_64) with AVX2 for best performance
+
+### Build Instructions
 ```bash
+# Clone the repository
 git clone https://github.com/zkexp-team/zkexp
 cd zkexp
-cargo build --release
-```
 
-**System Requirements:**
-- Rust 1.75+
-- 128GB RAM recommended for full benchmarks
+# Basic build
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo build --release
+
+# Full build with all baseline comparisons
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo build --release --features full
+```
 
 ## Usage
 
@@ -75,6 +83,25 @@ let results: Vec<_> = bases.iter()
     .collect();
 
 assert!(system.verify_sliding_window_batch(&proof, &bases, &exponents, &results));
+```
+
+### Running Benchmarks
+
+```bash
+# Full benchmark suite
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --features full
+
+# zkExp protocol validation
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run zkexp
+
+# Baseline comparisons
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --features all-baselines baselines
+
+# Single exponentiation analysis  
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run single-analysis
+
+# Quick validation
+RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run backing-quick
 ```
 
 ## Benchmarking
