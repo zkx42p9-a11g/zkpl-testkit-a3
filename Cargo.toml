@@ -6,7 +6,7 @@ edition = "2021"
 authors = ["zkExp Team"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/zkexp-team/enhanced-zkmap-zkexp"
+repository = "https://github.com/zkx42p9-a11g/zkpl-testkit-a3"
 keywords = ["zero-knowledge", "cryptography", "matrix-multiplication", "exponentiation", "benchmarks"]
 categories = ["cryptography", "mathematics", "science"]
 
