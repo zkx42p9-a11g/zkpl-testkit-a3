@@ -132,7 +132,6 @@ RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --releas
 **Baseline Comparisons:**
 - `schnorr-baseline` - Ed25519 Schnorr signatures
 - `bls-baseline` - BLS12-381 signature aggregation
-- `groth16-baseline` - Groth16 SNARK comparison
 - `all-baselines` - Enable all baseline comparisons
 
 **Utility Features:**
