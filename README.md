@@ -104,24 +104,7 @@ RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run single-a
 RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run backing-quick
 ```
 
-## Benchmarking
 
-```bash
-# Full benchmark suite
-RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --release --features full
-
-# zkExp protocol validation
-RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --release zkexp
-
-# Baseline comparisons
-RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --release --features all-baselines baselines
-
-# Single exponentiation analysis  
-RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --release single-analysis
-
-# Quick validation
-RUSTFLAGS="-C target-cpu=native -C target-feature=+avx2,+fma" cargo run --release backing-quick
-```
 
 ## Features
 
