@@ -38,7 +38,7 @@ zkExp is a novel zero-knowledge proof system for verifying discrete exponentiati
 ### Build Instructions
 ```bash
 # Clone the repository
-git clone https://github.com/zkexp-team/zkexp
+git clone https://github.com/zkx42p9-a11g/zkpl-testkit-a3
 cd zkexp
 
 # Basic build
